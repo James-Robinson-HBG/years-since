@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Years Since</title>
+  <link rel="stylesheet" href="https://use.typekit.net/jkf6qig.css"> <!-- Replace with your own Adobe Fonts link -->
+  <style>
+    body {
+      margin: 0;
+      font-family: "roc-grotesk-wide", sans-serif;
+      font-weight: 400;
+      font-size: 1.2em;
+      color: #000;
+      background: transparent;
+    }
+  </style>
+</head>
+<body>
+  <p>
+    Operating as a Freelance Graphic Designer for <span id="years-since"></span> years in various online spaces.
+  </p>
+
+  <script>
+    var startDate = new Date(2019, 2, 1);
+    var today = new Date();
+
+    var yearsSince = today.getFullYear() - startDate.getFullYear();
+
+    var hasHadAnniversaryThisYear = 
+      (today.getMonth() > startDate.getMonth()) || 
+      (today.getMonth() === startDate.getMonth() && today.getDate() >= startDate.getDate());
+
+    if (!hasHadAnniversaryThisYear) {
+      yearsSince--;
+    }
+
+    document.getElementById('years-since').textContent = yearsSince;
+  </script>
+</body>
+</html>
